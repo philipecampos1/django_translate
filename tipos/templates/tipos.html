@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Tipos
+{% endblock %}
+
+{% block content %}
+{% if tipos %}
+<div class="container mt-4">
+    <div class="row">
+        {% for tipo in tipos %}            
+            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                <a href="{% url 'translate_types_list' tipo.id %}" class="btn btn-primary btn-lg btn-block py-3 px-4">{{ tipo.tipo }}</a>
+            </div>  
+        {% endfor %}        
+    </div>
+</div>  
+{% else %}
+    <p>Data base empthy</p>
+{% endif %}        
+            
+
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos</title>
+</head>
+<body>
+    <h1>Tipos</h1>
+    <ul>
+        {% for tipo in tipos %}
+            <li><a href="{% url 'traducoes_por_tipo' tipo.id %}">{{ tipo.tipo }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

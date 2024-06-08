@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Traduções para {{ tipo.tipo }}</h2>
+    <div class="list-group">
+        {% if translates %}
+            {% for translate in translates %}
+                <a href="{% url 'translate_detail' tipo.tipo translate.id %}" class="list-group-item list-group-item-action">
+                    {{ translate.pt_br }}
+                </a>
+            {% endfor %}
+        {% else %}
+        <p>Desculpa ainda nao temos traducoes aqui </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
